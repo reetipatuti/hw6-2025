@@ -8,8 +8,11 @@ window.addEventListener("load", function() {
 document.getElementById("play").addEventListener("click", playVideo);
 
 function playVideo(){
-	video = document.querySelector("#player1");
+	const video = document.querySelector("#player1");
+	const slider = document.querySelector("#slider");
+	const volumeValue = slider.value;
 	video.play();
+	document.querySelector("#volume").innerHTML = volumeValue + "%";
 	console.log("Play Video");
 }
 
@@ -66,21 +69,20 @@ function changeVolume(){
 	document.querySelector("#volume").textContent = volume + "%";
 	console.log("Volume: " + volume);
 }
-
 // Set default volume to 100% on page load
-window.addEventListener("load", function() {
-	const video = document.querySelector("#player1");
-	const slider = document.querySelector("#slider");
-	video.volume = 1; 
-	slider.value = 100;
-	document.querySelector("#volume").textContent = "100%";
-	console.log("Default volume set to 100%");
-});
+// window.addEventListener("load", function() {
+// 	const video = document.querySelector("#player1");
+// 	const slider = document.querySelector("#slider");
+// 	video.volume = 1; 
+// 	slider.value = 100;
+// 	document.querySelector("#volume").textContent = "100%";
+// 	console.log("Default volume set to 100%");
+// });
 
 document.getElementById("vintage").addEventListener("click", vintageStyle);
 function vintageStyle() {
 	const video = document.querySelector("#player1");
-	video.classList.toggle("oldSchool");
+	video.classList.add("oldSchool");
 	console.log("Vintage style toggled");
 }
 
